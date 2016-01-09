@@ -46,10 +46,9 @@
         android:textColor="#FAFAFA"
         android:hint="@string/Odometer"
         android:textColorHint="#FAFAFA"
-        android:layout_above="@+id/FuelAmount"
+        android:layout_below="@+id/Station"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="49dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -57,11 +56,11 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/FuelAmount"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textColorHint="#FAFAFA"
-        android:hint="@string/FuelAmount" />
+        android:hint="@string/FuelAmount"
+        android:layout_below="@+id/FuelGrade"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -106,14 +105,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/FuelGrade"
-        android:layout_above="@+id/FuelAmount"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
         android:textColorHint="#FAFAFA"
         android:hint="@string/FuelGrade"
-        android:inputType="text" />
+        android:inputType="text"
+        android:layout_below="@+id/Odometer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/FuelAmount"
+        android:layout_alignEnd="@+id/FuelAmount" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -130,9 +129,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logoweb"
+        android:alpha=".15"
+        android:layout_toEndOf="@+id/FuelCost"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:alpha=".15"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
         />
 
 </RelativeLayout>

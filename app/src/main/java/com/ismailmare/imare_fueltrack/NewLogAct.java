@@ -1,10 +1,13 @@
 package com.ismailmare.imare_fueltrack;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class NewLogAct extends AppCompatActivity {
+    private static final String TAG = "Ismail's Message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,13 @@ public class NewLogAct extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart");
     }
 
     public void AddNewLog(View view){
@@ -44,24 +54,68 @@ public class NewLogAct extends AppCompatActivity {
         }
         button.setEnabled(false);
 
+
         double FuelCost;
         EditText fuel_amount = (EditText) (findViewById(R.id.FuelAmount));
         EditText fuel_unit_cost = (EditText) (findViewById(R.id.FuelUnitCost));
+        EditText odometer = (EditText) (findViewById(R.id.Odometer));
+        EditText date = (EditText) (findViewById(R.id.Date));
+        EditText station = (EditText) (findViewById(R.id.Station));
+        EditText fuel_grade = (EditText) (findViewById(R.id.FuelGrade));
 
+        String Station = station.getText().toString();
+        String Fuel_Grade = fuel_grade.getText().toString();
+        String odometer_str = odometer.getText().toString();
         String fuel_amount_str = fuel_amount.getText().toString();
         String fuel_unit_cost_str = fuel_unit_cost.getText().toString();
+        String date_str = date.getText().toString();
 
+        double Odometer = Double.parseDouble(odometer_str);
         double Fuel_Amount = Double.parseDouble(fuel_amount_str);
         double Fuel_Unit_Cost = Double.parseDouble(fuel_unit_cost_str);
         FuelCost = Fuel_Amount*Fuel_Unit_Cost;
-
         Fuel_Amount = Math.round(Fuel_Amount*100.000)/100.000;
         Fuel_Unit_Cost = Math.round(Fuel_Unit_Cost*100.0)/100.0;
         FuelCost = Math.round(FuelCost*100.00)/100.00;
 
-        Toast.makeText(getBaseContext(),"Fuel Cost = "+FuelCost, Toast.LENGTH_LONG).show();
-        button.setEnabled(true);
+        // So Far //
+        // Fuel_Amount, Fuel_Unit_Cost, FuelCost, Odometer, Fuel_Grade, Station, Date //
 
+        DateFormat format= new SimpleDateFormat("yyyy-mm-dd");
+        //DATE CHECK
+        try {
+            Date Date = format.parse(date_str);
+        } catch (ParseException e) {
+
+            date.setError("DATE yyyy-mm-dd FORMAT");
+        }
+
+
+        Toast.makeText(getBaseContext(),"Fuel Cost = "+FuelCost, Toast.LENGTH_LONG).show();
+
+
+        button.setEnabled(false);
+        Log.d(TAG, "Login");
+        final ProgressDialog progressDialog = new ProgressDialog(NewLogAct.this, R.style.AppTheme);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Adding Log");
+        progressDialog.show();
+
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        progressDialog.dismiss();
+                        done();
+                    }
+                }, 3000);
+
+
+
+
+    }
+    public void done(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void Error(){
@@ -72,20 +126,23 @@ public class NewLogAct extends AppCompatActivity {
     }
 
     public boolean Validate(){
-        boolean valid = true;
-        EditText date = (EditText) (findViewById(R.id.Date));
-        EditText station = (EditText) (findViewById(R.id.Station));
-        EditText fuel_grade = (EditText) (findViewById(R.id.FuelGrade));
+
         EditText fuel_amount = (EditText) (findViewById(R.id.FuelAmount));
         EditText fuel_unit_cost = (EditText) (findViewById(R.id.FuelUnitCost));
         EditText odometer = (EditText) (findViewById(R.id.Odometer));
+        EditText date = (EditText) (findViewById(R.id.Date));
+        EditText station = (EditText) (findViewById(R.id.Station));
+        EditText fuel_grade = (EditText) (findViewById(R.id.FuelGrade));
 
+        String Station = station.getText().toString();
+        String Fuel_Grade = fuel_grade.getText().toString();
+        String Odometer = odometer.getText().toString();
+        String Fuel_Amount = fuel_amount.getText().toString();
+        String Fuel_Unit_Cost = fuel_unit_cost.getText().toString();
         String date_str = date.getText().toString();
-        String station_str = station.getText().toString();
-        String fuel_grade_str = fuel_grade.getText().toString();
-        String fuel_amount_str = fuel_amount.getText().toString();
-        String fuel_unit_cost_str = fuel_unit_cost.getText().toString();
-        String odometer_str = odometer.getText().toString();
+
+        boolean valid = true;
+
 
         DateFormat format= new SimpleDateFormat("yyyy-mm-dd");
         //DATE CHECK
@@ -97,36 +154,31 @@ public class NewLogAct extends AppCompatActivity {
             return valid;
         }
 
-        try {
-            double Odometer = Double.parseDouble(odometer_str);
-        }catch(NumberFormatException e){
-            odometer.setError("Not a valid number");
-            valid = false;
-        }
-
-        try {
-            double Fuel_Amount = Double.parseDouble(fuel_amount_str);
-        }catch(NumberFormatException e){
-            fuel_amount.setError("Not a valid number");
-            valid=false;
-        }
-
-        try{
-            double Fuel_Unit_Cost = Double.parseDouble(fuel_unit_cost_str);
-        }catch(NumberFormatException e){
-            valid = false;
-            fuel_unit_cost.setError("Not a valid number");
-        }
-
-        if (fuel_grade_str.isEmpty()){
+        if (Fuel_Grade.isEmpty()){
             valid=false;
             fuel_grade.setError("Enter a Fuel Grade");
         }
 
-        if (station_str.isEmpty()){
+        if (Station.isEmpty()){
             valid = false;
             station.setError("Enter a Station");
         }
+
+        if (Odometer.isEmpty()) {
+            valid = false;
+            odometer.setError("Enter a Odometer Reading");
+        }
+
+        if (Fuel_Amount.isEmpty()){
+            valid = false;
+            fuel_amount.setError("Enter Fuel Amount");
+        }
+
+        if (Fuel_Unit_Cost.isEmpty()){
+            valid = false;
+            fuel_unit_cost.setError("Enter a Fuel Unit Cost");
+        }
         return valid;
     }
+
 }
