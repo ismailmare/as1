@@ -96,10 +96,15 @@ public class NewLogAct extends AppCompatActivity {
 
         button.setEnabled(false);
         Log.d(TAG, "Login");
-        final ProgressDialog progressDialog = new ProgressDialog(NewLogAct.this, R.style.AppTheme);
+        final ProgressDialog progressDialog = new ProgressDialog(NewLogAct.this, R.style.MyTheme);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Adding Log");
         progressDialog.show();
+
+        //pd = new ProgressDialog(NewLogAct.this,R.style.MyTheme);
+        //pd.setCancelable(false);
+        //pd.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        //pd.show();
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
