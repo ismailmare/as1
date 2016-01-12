@@ -131,6 +131,7 @@
         android:src="@drawable/logoweb"
         android:alpha=".15"
         android:layout_toEndOf="@+id/FuelCost"
+        android:layout_toRightOf="@id/FuelCost"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

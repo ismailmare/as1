@@ -83,8 +83,9 @@ public class NewLogAct extends AppCompatActivity {
 
         DateFormat format= new SimpleDateFormat("yyyy-mm-dd");
         //DATE CHECK
+        Date UserDate = new Date();
         try {
-            Date Date = format.parse(date_str);
+            UserDate = format.parse(date_str);
         } catch (ParseException e) {
 
             date.setError("DATE yyyy-mm-dd FORMAT");
@@ -105,6 +106,9 @@ public class NewLogAct extends AppCompatActivity {
         //pd.setCancelable(false);
         //pd.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
         //pd.show();
+
+        LogListController.AddLog(UserDate, Station, Odometer, Fuel_Grade, Fuel_Amount, Fuel_Unit_Cost, FuelCost);
+
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

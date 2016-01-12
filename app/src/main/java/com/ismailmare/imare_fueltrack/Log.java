@@ -11,16 +11,16 @@ import java.util.Objects;
 
 public class Log {
 
-    protected Date Date;
-    protected String Station;
-    protected Double Odometer;
-    protected String Fuel_Grade;
-    protected Double Fuel_Amount;
-    protected Double Fuel_Unit_Cost;
-    protected Double Fuel_Cost;
-    protected int Log_Id;
+    public Date Date;
+    public String Station;
+    public Double Odometer;
+    public String Fuel_Grade;
+    public Double Fuel_Amount;
+    public Double Fuel_Unit_Cost;
+    public Double Fuel_Cost;
+    public int Log_Id;
 
-    public Log(Date Date, String Station, Double Odometer, String Fuel_Grade, Double Fuel_Amount, Double Fuel_Unit_Cost, Double Fuel_Cost,Integer Log_Id){
+    public Log(Date Date, String Station, Double Odometer, String Fuel_Grade, Double Fuel_Amount, Double Fuel_Unit_Cost, Double Fuel_Cost){
         this.Date = Date;
         this.Station = Station;
         this.Odometer = Odometer;
