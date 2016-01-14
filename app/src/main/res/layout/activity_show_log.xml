@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:background="#00B0FF">
 
-    <ListView android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FAFAFA"
-        android:layout_weight="1"
-        android:drawSelectorOnTop="false" />
+    android:background="#00B0FF"
+    android:weightSum="1">
+
     <ListView
-        android:id="@+id/Showlogs"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/addStudentButton"
+        android:layout_height="426dp"
+        android:textColor="#FAFAFA"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true">
+
 
     </ListView>
 
-    <TextView android:id="@android:id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#00B0FF"
-        android:text="No data" />
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Logs"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:textSize="60dp"
+        android:textColor="#FAFAFA"
+        android:layout_above="@android:id/list"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"/>
+
+</RelativeLayout>

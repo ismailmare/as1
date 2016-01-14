@@ -25,6 +25,7 @@ public class NewLogAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_log);
+        LogListManager.initManager(this.getApplicationContext());
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -107,7 +108,8 @@ public class NewLogAct extends AppCompatActivity {
         //pd.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
         //pd.show();
 
-        LogListController.AddLog(UserDate, Station, Odometer, Fuel_Grade, Fuel_Amount, Fuel_Unit_Cost, FuelCost);
+        LogListController list5 = new LogListController();
+        list5.AddLog(UserDate, Station, Odometer, Fuel_Grade, Fuel_Amount, Fuel_Unit_Cost, FuelCost);
 
 
         new android.os.Handler().postDelayed(
@@ -117,9 +119,6 @@ public class NewLogAct extends AppCompatActivity {
                         done();
                     }
                 }, 3000);
-
-
-
 
     }
     public void done(){

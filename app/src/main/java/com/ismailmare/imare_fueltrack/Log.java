@@ -2,6 +2,8 @@ package com.ismailmare.imare_fueltrack;
 
 import android.content.Intent;
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -9,7 +11,7 @@ import java.util.Objects;
  * Created by ismailmare on 16-01-09.
  */
 
-public class Log {
+public class Log implements Serializable{
 
     public Date Date;
     public String Station;
@@ -36,6 +38,23 @@ public class Log {
         return this.Log_Id;
     }
 
+    public Date GetDate(Log log){
+        return log.Date;
+    }
+
+    public String toString(){
+        Date dateNow= this.Date;
+        String date_to_string;
+        SimpleDateFormat dateformatJava = new SimpleDateFormat("yyyy-MM-dd");
+        date_to_string = dateformatJava.format(dateNow);
+
+        return this.Station+" "+date_to_string;
+    }
+
+    public String GetStation(){
+        return this.Station;
+    }
+
     public boolean equals(Object Compare_Log){
         if (Compare_Log != null && Compare_Log.getClass() == this.getClass()){
             return this.equals((Log)Compare_Log);
@@ -52,8 +71,8 @@ public class Log {
         }
     }
 
-    public int hashcode(){
-        return ("Log ID: "+Get_ID()).hashCode();
+    public int hashCode(){
+        return ("Log ID: "+GetStation()).hashCode();
     }
 
 

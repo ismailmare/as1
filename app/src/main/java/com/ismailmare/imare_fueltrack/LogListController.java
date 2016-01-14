@@ -20,7 +20,7 @@ public class LogListController {
 
             try {
                 logList = LogListManager.getManager().loadLogList();
-                logList.addListener(new LogList.Listener() {
+                logList.addListener(new Listener() {
                     @Override
                     public void update() {
                         saveLogList();
@@ -51,19 +51,25 @@ public class LogListController {
         }
     }
 
-    public Log chooseLog() throws LogList.EmptyLogException{
 
-        return getLogList().chooseLog();
-    }
-
-    public void addLog(Log log) {
+    public void addLogg(Log log) {
 
         getLogList().addLog(log);
     }
 
-    public static void AddLog(Date Date, String Station, Double Odometer, String Fuel_Grade, Double Fuel_Amount, Double Fuel_Unit_Cost, Double Fuel_Cost ){
-        LogList list = getLogList();
+
+    public void AddLog(Date Date, String Station, Double Odometer, String Fuel_Grade, Double Fuel_Amount, Double Fuel_Unit_Cost, Double Fuel_Cost ){
+
+
         Log log = new Log(Date, Station, Odometer, Fuel_Grade, Fuel_Amount, Fuel_Unit_Cost, Fuel_Cost);
-        list.addLog(log);
+        addLogg(log);
     }
+
+
+
+
+
+
+
+
 }

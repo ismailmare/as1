@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ismailmare.imare_fueltrack.MoreInfo"
+    tools:showIn="@layout/activity_more_info"
+    android:background="#00B0FA"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Edit Log"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FAFAFA"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/Date"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:linksClickable="false"
+        android:hint="@string/Date"
+        android:textColorHint="#FAFAFA" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/Odometer"
+        android:textColor="#FAFAFA"
+        android:hint="@string/Odometer"
+        android:textColorHint="#FAFAFA"
+        android:layout_below="@+id/Station"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/FuelAmount"
+        android:textColorHint="#FAFAFA"
+        android:hint="@string/FuelAmount"
+        android:layout_below="@+id/FuelGrade"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/FuelUnitCost"
+        android:layout_below="@+id/FuelAmount"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="@string/FuelUnitCost"
+        android:textColorHint="#FAFAFA" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/EditButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="#90CAF9"
+        android:textColor="#FAFAFA"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:onClick="Replace"
+        android:allowUndo="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Station"
+        android:layout_below="@+id/Date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/Date"
+        android:layout_alignEnd="@+id/Date"
+        android:hint="@string/Station"
+        android:textColorHint="#FAFAFA"
+        android:inputType="text" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FuelGrade"
+        android:textColorHint="#FAFAFA"
+        android:hint="@string/FuelGrade"
+        android:inputType="text"
+        android:layout_below="@+id/Odometer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/FuelAmount"
+        android:layout_alignEnd="@+id/FuelAmount" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logoweb"
+        android:alpha=".15"
+        android:layout_toEndOf="@+id/FuelCost"
+        android:layout_toRightOf="@id/FuelCost"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/FuelCost"
+        android:hint="@string/FuelUnitCost"
+        android:textColorHint="#FAFAFA"
+        android:layout_below="@+id/FuelUnitCost"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" /><![CDATA[
+
+
+    />
+]]>
+</RelativeLayout>

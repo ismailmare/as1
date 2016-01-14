@@ -20,8 +20,8 @@ import android.util.Base64;
 
 public class LogListManager {
 
-    static final String prefFile =  "LogList";
-    static final String slKey = "logList";
+    static final String prefFile =  "logList14";
+    static final String slKey = "logList14";
 
 
     Context context;

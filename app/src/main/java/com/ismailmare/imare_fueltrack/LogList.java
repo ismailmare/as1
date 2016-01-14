@@ -36,43 +36,38 @@ public class LogList implements Serializable{
     }
 
     private void notifyListeners() {
-        for (Listener  listener : getListeners()) {
+        for (Listener  listener : listeners) {
             listener.update();
         }
     }
 
-    public void removeLog(Log log){
+    public void removeLogg(int log){
         logList.remove(log);
         notifyListeners();
     }
 
-    public Log chooseLog() throws EmptyLogException{
-        int size = logList.size();
-        if (size <= 0){
-            throw new EmptyLogException();
-        }
-        int index = (int) (logList.size() * Math.random());
-        return logList.get(index);
+    public void replace(Log oldLog, Log newLog) {
+        logList.remove(oldLog);
+        logList.add(newLog);
+        notifyListeners();
     }
 
-    public interface Listener {
-        public void update();
-    }
 
-    //public int size(){
-    //    return LogList.size();
-    //}
+
+    public static int size(){
+        return LogList.size();
+    }
 
     //public boolean contains(Log testLog){
     //    return LogList.contains(testLog);
     //}
 
     public void addListener(Listener l) {
-        getListeners().add(l);
+        listeners.add(l);
     }
 
     public void removeListener(Listener l) {
-        getListeners().remove(l);
+        listeners.remove(l);
     }
 
     public class EmptyLogException extends Exception {
