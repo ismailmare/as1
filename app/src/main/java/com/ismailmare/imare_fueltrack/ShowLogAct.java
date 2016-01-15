@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.Date;
 
 
+
 public class ShowLogAct extends ListActivity {
 
     @Override
@@ -63,7 +64,7 @@ public class ShowLogAct extends ListActivity {
             @Override
             public boolean onItemLongClick(final AdapterView<?> adapterView, View view, final int position, long id) {
                 AlertDialog.Builder alt = new AlertDialog.Builder(ShowLogAct.this);
-                alt.setMessage("Edit or Delete this Log? " + list.get(position).toString());
+                alt.setMessage("Edit or Delete this Log? ");
                 alt.setCancelable(true);
                 final int pos = position;
                 alt.setPositiveButton("Cancel", new OnClickListener() {
@@ -76,7 +77,7 @@ public class ShowLogAct extends ListActivity {
                 alt.setNeutralButton("Edit", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Log log_info = list.get(pos);
+                        Log log_info = list.get(position);
                         Moreinfo(log_info);
                     }
                 });
@@ -110,7 +111,7 @@ public class ShowLogAct extends ListActivity {
     }
 
     public void Moreinfo(Log log){
-        Intent intent = new Intent(this, MoreInfo.class);
+        Intent intent = new Intent(ShowLogAct.this, MoreInfo.class);
         intent.putExtra("Log", log);
         startActivity(intent);
     }

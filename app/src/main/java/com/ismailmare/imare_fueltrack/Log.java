@@ -13,6 +13,8 @@ import java.util.Objects;
 
 public class Log implements Serializable{
 
+    private static final long serialVersionUID = 1L;
+
     public Date Date;
     public String Station;
     public Double Odometer;
@@ -44,11 +46,20 @@ public class Log implements Serializable{
 
     public String toString(){
         Date dateNow= this.Date;
+        String stationNow = this.Station;
+        Double odometerNow = this.Odometer;
+        String fuelgradeNow = this.Fuel_Grade;
+        Double fuelamountNow = this.Fuel_Amount;
+        Double fuelunitcostNow = this.Fuel_Unit_Cost;
+        Double fuelcostNow = this.Fuel_Cost;
+
+
+
         String date_to_string;
         SimpleDateFormat dateformatJava = new SimpleDateFormat("yyyy-MM-dd");
         date_to_string = dateformatJava.format(dateNow);
 
-        return this.Station+" "+date_to_string;
+        return "Stn: "+stationNow+" Date: "+date_to_string+"\n"+ "Odo: "+odometerNow.toString()+" Grd: " +fuelgradeNow.toString()+" amt: "+fuelamountNow.toString()+" UntCst: "+fuelunitcostNow.toString()+"\n"+" Cst: "+fuelcostNow.toString();
     }
 
     public String GetStation(){

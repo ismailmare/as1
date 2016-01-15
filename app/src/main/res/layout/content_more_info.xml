@@ -135,7 +135,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/FuelCost"
-        android:hint="@string/FuelUnitCost"
+        android:hint="@string/FuelCost"
         android:textColorHint="#FAFAFA"
         android:layout_below="@+id/FuelUnitCost"
         android:layout_alignParentLeft="true"

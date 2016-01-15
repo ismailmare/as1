@@ -118,7 +118,7 @@ public class NewLogAct extends AppCompatActivity {
                         progressDialog.dismiss();
                         done();
                     }
-                }, 3000);
+                }, 2000);
 
     }
     public void done(){
