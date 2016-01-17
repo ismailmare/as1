@@ -7,6 +7,14 @@ package com.ismailmare.imare_fueltrack;
 import java.io.IOException;
 import java.util.Date;
 
+/*
+Mostly from Abram Hindle Student Picker
+used to control what values are deleting from the
+log list and what values are added
+using these functions and the override function
+that rewrites the list after an addition or deletion
+has been made
+ */
 
 public class LogListController {
 

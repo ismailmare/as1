@@ -18,6 +18,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/*
+This class sets up the input structure to
+add a log. Error alot of error handling for the correct
+information
+ */
+
 public class NewLogAct extends AppCompatActivity {
     private static final String TAG = "Ismail's Message";
 
@@ -74,6 +80,7 @@ public class NewLogAct extends AppCompatActivity {
         double Odometer = Double.parseDouble(odometer_str);
         double Fuel_Amount = Double.parseDouble(fuel_amount_str);
         double Fuel_Unit_Cost = Double.parseDouble(fuel_unit_cost_str);
+        Fuel_Unit_Cost=Fuel_Unit_Cost/100;
         FuelCost = Fuel_Amount*Fuel_Unit_Cost;
         Fuel_Amount = Math.round(Fuel_Amount*100.000)/100.000;
         Fuel_Unit_Cost = Math.round(Fuel_Unit_Cost*100.0)/100.0;

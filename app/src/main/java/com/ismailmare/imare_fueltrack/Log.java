@@ -10,7 +10,10 @@ import java.util.Objects;
 /**
  * Created by ismailmare on 16-01-09.
  */
+/*
+Log class. Constructor initializes values needed
 
+ */
 public class Log implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -36,14 +39,19 @@ public class Log implements Serializable{
         this.Log_Id = random;
     }
 
+    // Returns the unique id for each log
     public int Get_ID(){
         return this.Log_Id;
     }
 
+    // Returns the date of a log
     public Date GetDate(Log log){
         return log.Date;
     }
 
+    /* Is the function that i use to print out the
+     values of each log in a list format
+    */
     public String toString(){
         Date dateNow= this.Date;
         String stationNow = this.Station;
@@ -59,13 +67,15 @@ public class Log implements Serializable{
         SimpleDateFormat dateformatJava = new SimpleDateFormat("yyyy-MM-dd");
         date_to_string = dateformatJava.format(dateNow);
 
-        return "Stn: "+stationNow+" Date: "+date_to_string+"\n"+ "Odo: "+odometerNow.toString()+" Grd: " +fuelgradeNow.toString()+" amt: "+fuelamountNow.toString()+" UntCst: "+fuelunitcostNow.toString()+"\n"+" Cst: "+fuelcostNow.toString();
+        return "STN: "+stationNow+" DATE: "+date_to_string+"\n"+ "ODO: "+odometerNow.toString()+" GRD: " +fuelgradeNow.toString()+"\n"+"AMT: "+fuelamountNow.toString()+" UNTCST: "+fuelunitcostNow.toString()+" Cst: "+fuelcostNow.toString();
     }
 
+    //Returning the station of the log
     public String GetStation(){
         return this.Station;
     }
 
+    // Checking if two logs are equal
     public boolean equals(Object Compare_Log){
         if (Compare_Log != null && Compare_Log.getClass() == this.getClass()){
             return this.equals((Log)Compare_Log);

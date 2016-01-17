@@ -12,6 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 
+/*
+App begins here and has the two main methods
+that change activity according to the button
+pressed
+ */
 public class MainActivity extends AppCompatActivity {
 
 

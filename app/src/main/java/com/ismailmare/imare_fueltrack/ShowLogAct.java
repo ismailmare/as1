@@ -22,7 +22,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-
+/*
+This class displays the logs in a list format
+and options are set up to either delete or edit logs
+ */
 
 public class ShowLogAct extends ListActivity {
 
@@ -78,7 +81,7 @@ public class ShowLogAct extends ListActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Log log_info = list.get(position);
-                        Moreinfo(log_info);
+                        Moreinfo(log_info,pos);
                     }
                 });
 
@@ -110,9 +113,10 @@ public class ShowLogAct extends ListActivity {
         startActivity(intent);
     }
 
-    public void Moreinfo(Log log){
+    public void Moreinfo(Log log,Integer pos){
         Intent intent = new Intent(ShowLogAct.this, MoreInfo.class);
         intent.putExtra("Log", log);
+        intent.putExtra("Pos",pos);
         startActivity(intent);
     }
 }

@@ -8,6 +8,12 @@ import java.util.Collection;
 /**
  * Created by ismailmare on 16-01-10.
  */
+
+/*
+Initializing the log list.
+Keeps track of what logs have been added and deleted
+using listeners
+ */
 public class LogList implements Serializable{
 
     private static final long serialVersionUID = 6673446047991058932L;
@@ -58,16 +64,13 @@ public class LogList implements Serializable{
         return LogList.size();
     }
 
-    //public boolean contains(Log testLog){
-    //    return LogList.contains(testLog);
-    //}
 
     public void addListener(Listener l) {
-        listeners.add(l);
+        getListeners().add(l);
     }
 
     public void removeListener(Listener l) {
-        listeners.remove(l);
+        getListeners().remove(l);
     }
 
     public class EmptyLogException extends Exception {

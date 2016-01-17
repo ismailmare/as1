@@ -17,11 +17,15 @@ import android.util.Base64;
 
 
 
-
+/*
+From Mostly from Abram Hindle Student Picker
+Used to serialize the data of the logs
+also uses shared preferences
+ */
 public class LogListManager {
 
-    static final String prefFile =  "logList32";
-    static final String slKey = "logList32";
+    static final String prefFile =  "logList42";
+    static final String slKey = "logList42";
 
 
     Context context;
