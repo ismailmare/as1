@@ -6,4 +6,4 @@ save their all their trips to the gas station
 and records some information about the trip
 
 Users can create new logs, or edit and delete past logs.
-All wrapped up in a simple pretty user interface.
+All wrapped up in a simple, pretty user interface.
