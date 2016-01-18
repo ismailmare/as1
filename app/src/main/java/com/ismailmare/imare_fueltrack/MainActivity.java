@@ -15,7 +15,7 @@ import android.view.View;
 /*
 App begins here and has the two main methods
 that change activity according to the button
-pressed
+press
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    // If the user selected new log a the NewLogAct will run
     public void NewLog(View view){
         Intent intent = new Intent(this, NewLogAct.class);
         startActivity(intent);
     }
-
+    // If the user selects show logs the ShowLogsAct will run
     public void ShowLogs(View view){
         Intent intent = new Intent(this, ShowLogAct.class);
         startActivity(intent);

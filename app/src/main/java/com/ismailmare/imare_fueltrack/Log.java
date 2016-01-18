@@ -17,7 +17,7 @@ Log class. Constructor initializes values needed
 public class Log implements Serializable{
 
     private static final long serialVersionUID = 1L;
-
+    // initializing the data values for the contructor
     public Date Date;
     public String Station;
     public Double Odometer;
@@ -27,6 +27,7 @@ public class Log implements Serializable{
     public Double Fuel_Cost;
     public int Log_Id;
 
+    //Constructor for the log
     public Log(Date Date, String Station, Double Odometer, String Fuel_Grade, Double Fuel_Amount, Double Fuel_Unit_Cost, Double Fuel_Cost){
         this.Date = Date;
         this.Station = Station;
@@ -83,7 +84,7 @@ public class Log implements Serializable{
             return false;
         }
     }
-
+    //Compares two logs
     public boolean equals(Log Compare_Log){
         if (Compare_Log != null){
             return false;

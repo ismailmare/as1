@@ -35,7 +35,7 @@ public class ShowLogAct extends ListActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
+    // On create this will create the activity and display all previous logs
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,7 @@ public class ShowLogAct extends ListActivity {
         });
 
         listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+            // When an item is Long clicked a alert message is displayed.
             @Override
             public boolean onItemLongClick(final AdapterView<?> adapterView, View view, final int position, long id) {
                 AlertDialog.Builder alt = new AlertDialog.Builder(ShowLogAct.this);
@@ -112,7 +113,7 @@ public class ShowLogAct extends ListActivity {
         Intent intent = new Intent(this, ShowLogAct.class);
         startActivity(intent);
     }
-
+    // If the user selects edit from the alert message dialog this function will run
     public void Moreinfo(Log log,Integer pos){
         Intent intent = new Intent(ShowLogAct.this, MoreInfo.class);
         intent.putExtra("Log", log);

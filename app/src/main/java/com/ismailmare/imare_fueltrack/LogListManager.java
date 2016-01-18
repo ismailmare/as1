@@ -24,6 +24,7 @@ also uses shared preferences
  */
 public class LogListManager {
 
+
     static final String prefFile =  "logList42";
     static final String slKey = "logList42";
 
@@ -31,7 +32,12 @@ public class LogListManager {
     Context context;
     static private LogListManager logListManager = null;
 
+    //Constructor
+    public LogListManager(Context context) {
+        this.context = context;
+    }
 
+    // Initializing the Log Manager used in ShowLogAct
     public static void initManager(Context context){
 
         if(logListManager == null){
@@ -43,7 +49,7 @@ public class LogListManager {
 
 
     }
-
+    // returning loglistmanager
     public static LogListManager getManager() {
         if (logListManager==null) {
             throw new RuntimeException("Error");
@@ -51,10 +57,7 @@ public class LogListManager {
         return logListManager;
     }
 
-    public LogListManager(Context context) {
-        this.context = context;
-    }
-
+    // Loading log list form shared preferences
     public LogList loadLogList() throws ClassNotFoundException, IOException {
         SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
         String logListData = settings.getString(slKey, "");
@@ -64,11 +67,13 @@ public class LogListManager {
             return logListFromString(logListData);
         }
     }
+    // returning log list from Serlialized data
     static public LogList logListFromString(String logListData) throws ClassNotFoundException, IOException {
         ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(logListData, Base64.DEFAULT));
         ObjectInputStream oi = new ObjectInputStream(bi);
         return (LogList)oi.readObject();
     }
+    // writing data to be serialized
     static public String logListToString(LogList sl) throws IOException {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         ObjectOutputStream oo = new ObjectOutputStream(bo);
@@ -77,7 +82,7 @@ public class LogListManager {
         byte bytes[] = bo.toByteArray();
         return Base64.encodeToString(bytes,Base64.DEFAULT);
     }
-
+    // saving log list in shared preferences
     public void saveLogList(LogList sl) throws IOException {
         SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
         Editor editor = settings.edit();

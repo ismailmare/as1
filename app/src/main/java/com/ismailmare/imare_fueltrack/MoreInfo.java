@@ -29,7 +29,8 @@ the values will be updated
 public class MoreInfo extends AppCompatActivity {
 
     public static int pos;
-
+    // On create the data values will be filled in and are set to editable
+    // Will recalculate and save the fuelcost and the rest of the data values
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,7 +54,7 @@ public class MoreInfo extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
+    // printing the log in the activity
     public void PrintLog(Log log, Integer pos){
 
         String OldStation = log.Station;
@@ -93,7 +94,8 @@ public class MoreInfo extends AppCompatActivity {
     }
 
 
-
+    // replacing the log with the new edited one
+    // This function will only run if the submit button is pressed
     public void Replace(View view){
 
         if(!Validate()){
@@ -167,17 +169,21 @@ public class MoreInfo extends AppCompatActivity {
                 }, 2000);
 
     }
+
+    // when the replace function is done running
+    // return to main menu
     public void done(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
+    // When there is a missing data value or data value entered incorrectly
+    // This function will run, diplays a error message to the screen
     public void Error(){
         Button button = (Button) (findViewById(R.id.button));
         Toast.makeText(getBaseContext(),"Log Failed", Toast.LENGTH_LONG).show();
 
     }
-
+    // used to validate the values entered in the activity
     public boolean Validate(){
 
         EditText fuel_amount = (EditText) (findViewById(R.id.FuelAmount));

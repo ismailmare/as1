@@ -20,22 +20,23 @@ public class LogList implements Serializable{
     protected ArrayList<Log> logList= null;
     protected transient ArrayList<Listener> listeners = null;
 
+    // Contructor for the Loglist
     public LogList(){
         logList = new ArrayList<Log>();
         listeners = new ArrayList<Listener>();
     }
-
+    //returning the listeners for the array of logs
     private ArrayList<Listener> getListeners() {
         if (listeners == null ) {
             listeners = new ArrayList<Listener>();
         }
         return listeners;
     }
-
+    // Holds all the logs
     public Collection<Log> getLogs(){
         return logList;
     }
-
+    // Used for adding a log, will run the function below and update listeners
     public void addLog(Log log){
         logList.add(log);
         notifyListeners();
@@ -46,12 +47,12 @@ public class LogList implements Serializable{
             listener.update();
         }
     }
-
+    // removing logs
     public void removeLogg(int log){
         logList.remove(log);
         notifyListeners();
     }
-
+    // replacing logs. Used for the editing in MoreInfo
     public void replace(Log oldLog, Log newLog) {
         logList.remove(oldLog);
         logList.add(newLog);
@@ -59,20 +60,20 @@ public class LogList implements Serializable{
     }
 
 
-
+    // Returns the size of the loglist
     public static int size(){
         return LogList.size();
     }
 
-
+    // Adding a listener, used when adding a log
     public void addListener(Listener l) {
         getListeners().add(l);
     }
-
+    // removing a listenr, used when removing a log
     public void removeListener(Listener l) {
         getListeners().remove(l);
     }
-
+    // Exception
     public class EmptyLogException extends Exception {
 
         /**

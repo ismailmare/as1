@@ -9,7 +9,7 @@ package com.ismailmare.imare_fueltrack;
 
  */
 public interface Listener {
-    public void update();
+    public void update(); // updates the listener array in ShowLogAct
 }
 
 

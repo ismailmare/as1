@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:fontFamily="sans-serif-thin"
+    android:textStyle="italic"
     android:background="#00B0FF"
     android:weightSum="1">
 
@@ -20,7 +21,9 @@
         android:fastScrollEnabled="false"
         android:focusableInTouchMode="true"
         android:focusable="true"
-        android:headerDividersEnabled="true">
+        android:headerDividersEnabled="true"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="italic">
 
 
     </ListView>
@@ -39,6 +42,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="italic"/>
 
 </RelativeLayout>

@@ -18,12 +18,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Edit Log"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#FAFAFA"/>
+        android:textColor="#FAFAFA"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="italic"
+        android:textSize="50dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,7 +42,9 @@
         android:layout_alignParentStart="true"
         android:linksClickable="false"
         android:hint="@string/Date"
-        android:textColorHint="#FAFAFA" />
+        android:textColorHint="#FAFAFA"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -53,7 +58,9 @@
         android:textColorHint="#FAFAFA"
         android:layout_below="@+id/Station"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -67,7 +74,9 @@
         android:hint="@string/FuelAmount"
         android:layout_below="@+id/FuelGrade"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -81,21 +90,26 @@
         android:textColor="#FAFAFA"
         android:layout_alignParentStart="true"
         android:hint="@string/FuelUnitCost"
-        android:textColorHint="#FAFAFA" />
+        android:textColorHint="#FAFAFA"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/EditButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
         android:background="#90CAF9"
         android:textColor="#FAFAFA"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:onClick="Replace"
-        android:allowUndo="true" />
+        android:allowUndo="true"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="italic"
+        android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -110,7 +124,9 @@
         android:hint="@string/Station"
         android:textColor="#FAFAFA"
         android:textColorHint="#FAFAFA"
-        android:inputType="text" />
+        android:inputType="text"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -125,7 +141,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/FuelAmount"
-        android:layout_alignEnd="@+id/FuelAmount" />
+        android:layout_alignEnd="@+id/FuelAmount"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/imageView1"
@@ -137,7 +155,8 @@
         android:layout_toRightOf="@id/FuelCost"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
     />
 
     <EditText
@@ -152,7 +171,9 @@
         android:textColorHint="#FAFAFA"
         android:layout_below="@+id/FuelUnitCost"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" /><![CDATA[
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif-thin"
+        android:textStyle="bold"/><![CDATA[
 
 
     />

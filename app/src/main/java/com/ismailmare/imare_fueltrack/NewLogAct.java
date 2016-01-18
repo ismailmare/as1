@@ -45,13 +45,14 @@ public class NewLogAct extends AppCompatActivity {
         });
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
+    //Printing a log message
     @Override
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "onStart");
     }
-
+    // Adding a new log
+    // Will run when submit button is pressed
     public void AddNewLog(View view){
         Button button = (Button) (findViewById(R.id.button));
 

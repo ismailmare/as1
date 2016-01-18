@@ -21,7 +21,7 @@ public class LogListController {
 
     private static LogList logList = null;
 
-
+    // Used to retrive the Loglist at the start of ShowLogList Activity
     static public LogList getLogList() {
 
         if (logList == null) {
@@ -59,13 +59,13 @@ public class LogListController {
         }
     }
 
-
+    // Adding a log to LogList
     public void addLogg(Log log) {
 
         getLogList().addLog(log);
     }
 
-
+    // Adding a log from NewLogAct
     public void AddLog(Date Date, String Station, Double Odometer, String Fuel_Grade, Double Fuel_Amount, Double Fuel_Unit_Cost, Double Fuel_Cost ){
 
 
